@@ -14,6 +14,8 @@
 		FDDCC6651FBE0A4D00A0C744 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDCC6641FBE0A4D00A0C744 /* MainViewController.swift */; };
 		FDDCC6681FBE13B100A0C744 /* DetailsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDCC6671FBE13B100A0C744 /* DetailsCollectionViewCell.swift */; };
 		FDDCC66B1FBE311C00A0C744 /* Prayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDCC66A1FBE311C00A0C744 /* Prayer.swift */; };
+		FDDCC66D1FBE344800A0C744 /* PrayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDCC66C1FBE344800A0C744 /* PrayerController.swift */; };
+		FDDCC66F1FBE34D300A0C744 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDCC66E1FBE34D300A0C744 /* NetworkController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		FDDCC6641FBE0A4D00A0C744 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		FDDCC6671FBE13B100A0C744 /* DetailsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsCollectionViewCell.swift; sourceTree = "<group>"; };
 		FDDCC66A1FBE311C00A0C744 /* Prayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prayer.swift; sourceTree = "<group>"; };
+		FDDCC66C1FBE344800A0C744 /* PrayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerController.swift; sourceTree = "<group>"; };
+		FDDCC66E1FBE34D300A0C744 /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +65,8 @@
 				FDDCC6521FBE0A0900A0C744 /* AppDelegate.swift */,
 				FDDCC6561FBE0A0900A0C744 /* Main.storyboard */,
 				FDDCC66A1FBE311C00A0C744 /* Prayer.swift */,
+				FDDCC66C1FBE344800A0C744 /* PrayerController.swift */,
+				FDDCC66E1FBE34D300A0C744 /* NetworkController.swift */,
 				FDDCC6691FBE1CE900A0C744 /* View */,
 				FDDCC6661FBE0A5000A0C744 /* View Controller */,
 				FDDCC6591FBE0A0900A0C744 /* Assets.xcassets */,
@@ -159,6 +165,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FDDCC6531FBE0A0900A0C744 /* AppDelegate.swift in Sources */,
+				FDDCC66D1FBE344800A0C744 /* PrayerController.swift in Sources */,
+				FDDCC66F1FBE34D300A0C744 /* NetworkController.swift in Sources */,
 				FDDCC6651FBE0A4D00A0C744 /* MainViewController.swift in Sources */,
 				FDDCC66B1FBE311C00A0C744 /* Prayer.swift in Sources */,
 				FDDCC6681FBE13B100A0C744 /* DetailsCollectionViewCell.swift in Sources */,
