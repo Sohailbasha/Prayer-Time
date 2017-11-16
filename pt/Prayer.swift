@@ -15,5 +15,9 @@ struct Prayer {
 
 class Prayers: NSObject {
     var prayers: [Prayer] = []
+    var baseURL: String = "http://muslimsalat.com/"
     
+    func fetch(location: String) {
+        
+    }
 }
