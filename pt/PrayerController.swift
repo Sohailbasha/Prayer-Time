@@ -50,6 +50,10 @@ class PrayerController {
                 for key in items.keys {
                     if key != "shurooq" && key != "date_for" {
                         self.prayerDictionary[key] = items[key]
+                        if let timing = items[key] {
+                            let prayer = Prayer(name: key, time: timing)
+                            self.prayers.append(prayer)
+                        }
                     }
                 }
             }

@@ -28,7 +28,11 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         self.view.addSubview(collectionView)
         PrayerController.sharedInstance.fetch(location: "Ashburn") { (success) in
             if success {
-                print(PrayerController.sharedInstance.prayerDictionary)
+                print(PrayerController.sharedInstance.prayers)
+                DispatchQueue.main.async {
+                    guard let cell = self.collectionView.visibleCells[0] as? DetailsCollectionViewCell else { return }
+                    cell.timeTableCollectionView.reloadData()
+                }
             }
         }
     }
