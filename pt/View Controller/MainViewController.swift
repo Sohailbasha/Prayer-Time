@@ -26,6 +26,11 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         collectionView.delegate = self
         collectionView.register(DetailsCollectionViewCell.self, forCellWithReuseIdentifier: "detailCell")
         self.view.addSubview(collectionView)
+        PrayerController.sharedInstance.fetch(location: "Ashburn") { (success) in
+            if success {
+                print(PrayerController.sharedInstance.prayerDictionary)
+            }
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
