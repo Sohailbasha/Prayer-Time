@@ -50,16 +50,21 @@ class PrayerController {
                 for key in items.keys {
                     if key != "shurooq" && key != "date_for" {
                         if let timing = items[key] {
-                            var prayer = Prayer(name: key, time: timing, order: 0)
-                            
+                            var order = Int()
                             switch key {
-                            case "fajr": prayer.order = 0
-                            case "dhuhr": prayer.order = 1
-                            case "asr": prayer.order = 2
-                            case "maghrib": prayer.order = 3
-                            case "ishah": prayer.order = 4
+                            case "fajr":
+                                order = 0
+                            case "dhuhr":
+                                order = 1
+                            case "asr":
+                                order = 2
+                            case "maghrib":
+                                order = 3
+                            case "isha":
+                                order = 4
                             default: break
                             }
+                            let prayer = Prayer(name: key, time: timing, order: order)
                             self.prayers.append(prayer)
                         }
                     }
