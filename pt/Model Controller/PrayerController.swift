@@ -14,8 +14,6 @@ class PrayerController {
     var baseURL: String = "http://muslimsalat.com/"
     var prayers: [Prayer] = []
     
- 
-    
     var prayerDictionary = [String:String]()
 
     func fetch(location: String, completion: @escaping (Bool) -> Void) {
@@ -52,15 +50,15 @@ class PrayerController {
                         if let timing = items[key] {
                             var order = Int()
                             switch key {
-                            case "fajr":
+                            case Keys.fajrKey:
                                 order = 0
-                            case "dhuhr":
+                            case Keys.dhuhrKey:
                                 order = 1
-                            case "asr":
+                            case Keys.asrKey:
                                 order = 2
-                            case "maghrib":
+                            case Keys.maghribKey:
                                 order = 3
-                            case "isha":
+                            case Keys.ishaKey:
                                 order = 4
                             default: break
                             }

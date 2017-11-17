@@ -90,11 +90,11 @@
 			children = (
 				FDDCC6521FBE0A0900A0C744 /* AppDelegate.swift */,
 				FDDCC6561FBE0A0900A0C744 /* Main.storyboard */,
-				FDDCC66A1FBE311C00A0C744 /* Prayer.swift */,
-				FDDCC66C1FBE344800A0C744 /* PrayerController.swift */,
-				FDDCC66E1FBE34D300A0C744 /* NetworkController.swift */,
+				FDDCC6721FBF73E200A0C744 /* Model */,
+				FDDCC6731FBF73F400A0C744 /* Model Controller */,
 				FDDCC6691FBE1CE900A0C744 /* View */,
 				FDDCC6661FBE0A5000A0C744 /* View Controller */,
+				FDDCC66E1FBE34D300A0C744 /* NetworkController.swift */,
 				FDDCC6591FBE0A0900A0C744 /* Assets.xcassets */,
 				FDDCC65B1FBE0A0900A0C744 /* LaunchScreen.storyboard */,
 				FDDCC65E1FBE0A0900A0C744 /* Info.plist */,
@@ -117,6 +117,22 @@
 				FDDCC6671FBE13B100A0C744 /* DetailsCollectionViewCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		FDDCC6721FBF73E200A0C744 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FDDCC66A1FBE311C00A0C744 /* Prayer.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FDDCC6731FBF73F400A0C744 /* Model Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FDDCC66C1FBE344800A0C744 /* PrayerController.swift */,
+			);
+			path = "Model Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

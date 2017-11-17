@@ -112,7 +112,8 @@ class PrayerCell: UICollectionViewCell {
     func setupViews() {
         addSubview(prayerNameLabel)
         addSubview(timeLabel)
-        backgroundColor = UIColor.blue
+//        backgroundColor = UIColor.blue
+        backgroundColor = UIColor.clear
     }
 }
 

@@ -14,6 +14,3 @@ struct Prayer {
     var order: Int
 }
 
-class Prayers: NSObject {
-    var prayers: [Prayer] = []
-}
