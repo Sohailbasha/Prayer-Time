@@ -13,10 +13,10 @@ class PrayerController {
     static let sharedInstance = PrayerController()
     var baseURL: String = "http://muslimsalat.com/"
     var prayers: [Prayer] = []
-    var prayerDicts: [[String:String]] = []
-    var prayerDictionary = [String:String]()
     
-
+ 
+    
+    var prayerDictionary = [String:String]()
 
     func fetch(location: String, completion: @escaping (Bool) -> Void) {
         guard let url = URL(string: "\(baseURL)\(location).json") else { return }
@@ -49,9 +49,17 @@ class PrayerController {
             for items in itemsDict {
                 for key in items.keys {
                     if key != "shurooq" && key != "date_for" {
-                        self.prayerDictionary[key] = items[key]
                         if let timing = items[key] {
-                            let prayer = Prayer(name: key, time: timing)
+                            var prayer = Prayer(name: key, time: timing, order: 0)
+                            
+                            switch key {
+                            case "fajr": prayer.order = 0
+                            case "dhuhr": prayer.order = 1
+                            case "asr": prayer.order = 2
+                            case "maghrib": prayer.order = 3
+                            case "ishah": prayer.order = 4
+                            default: break
+                            }
                             self.prayers.append(prayer)
                         }
                     }

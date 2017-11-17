@@ -7,15 +7,13 @@
 //
 
 import Foundation
-import Alamofire
-import SwiftyJSON
 
 struct Prayer {
     let name: String
     let time: String
+    var order: Int
 }
 
 class Prayers: NSObject {
     var prayers: [Prayer] = []
-    
 }

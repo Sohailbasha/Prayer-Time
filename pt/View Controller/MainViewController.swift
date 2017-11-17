@@ -28,6 +28,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         self.view.addSubview(collectionView)
         PrayerController.sharedInstance.fetch(location: "Ashburn") { (success) in
             if success {
+                PrayerController.sharedInstance.prayers.sort(by: {$0.order < $1.order})
                 print(PrayerController.sharedInstance.prayers)
                 DispatchQueue.main.async {
                     guard let cell = self.collectionView.visibleCells[0] as? DetailsCollectionViewCell else { return }

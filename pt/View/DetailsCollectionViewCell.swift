@@ -55,6 +55,8 @@ class DetailsCollectionViewCell: UICollectionViewCell, UICollectionViewDataSourc
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as? PrayerCell
+        let prayer = PrayerController.sharedInstance.prayers[indexPath.row]
+        cell?.prayer = prayer
         return cell ?? UICollectionViewCell()
     }
     
@@ -97,6 +99,15 @@ class PrayerCell: UICollectionViewCell {
         label.text = "Time"
         return label
     }()
+    
+    var prayer: Prayer? {
+        didSet {
+            if let prayer = self.prayer {
+                self.prayerNameLabel.text = prayer.name.capitalized
+                self.timeLabel.text = prayer.time
+            }
+        }
+    }
     
     func setupViews() {
         addSubview(prayerNameLabel)
