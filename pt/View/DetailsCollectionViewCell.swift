@@ -53,7 +53,7 @@ class DetailsCollectionViewCell: UICollectionViewCell, UICollectionViewDataSourc
     }()
     
     func setupViews() {
-        self.backgroundColor = .white
+        self.backgroundColor = .clear
         timeTableCollectionView.dataSource = self
         timeTableCollectionView.delegate = self
         timeTableCollectionView.register(PrayerCell.self, forCellWithReuseIdentifier: cellID)
@@ -64,7 +64,6 @@ class DetailsCollectionViewCell: UICollectionViewCell, UICollectionViewDataSourc
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return PrayerController.sharedInstance.prayers.count
-
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -80,7 +79,6 @@ class DetailsCollectionViewCell: UICollectionViewCell, UICollectionViewDataSourc
         let width = (timeTableCollectionView.frame.width - (leftAndRightPaddings * (numberOfItemsPerRow + 1))) / numberOfItemsPerRow
         let height = timeTableCollectionView.frame.height
         let size = CGSize(width: width, height: height)
-        
         return size
     }
     

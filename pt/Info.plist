@@ -46,5 +46,7 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Let us know your location in order to provide accurate prayer times</string>
 </dict>
 </plist>
