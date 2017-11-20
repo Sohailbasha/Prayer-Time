@@ -15,20 +15,24 @@ class DetailsCollectionViewCell: UICollectionViewCell, UICollectionViewDataSourc
     override init(frame: CGRect) {
         super.init(frame: frame)
         upcomingLabel.frame = CGRect(x: 8, y: frame.size.height * 0.10, width: frame.size.width - 10, height: 45)
+        locationButton.frame = CGRect(x: (self.center.x - 50), y: 20, width: 100, height: 25) // center is subtracted by width/2
         setupViews()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    let upcomingLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 25, weight: .semibold)
-        label.textColor = UIColor.black
-        label.textAlignment = .left
-        label.text = "Upcoming Prayer"
-        return label
+
+    let locationButton: UIButton = {
+        let button = UIButton()
+        button.setTitleColor(.blue, for: .normal)
+        button.setTitle("location", for: .normal)
+        button.setImage(#imageLiteral(resourceName: "map-pin"), for: .normal)
+        button.imageView?.tintColor = UIColor.blue
+        let spacing: CGFloat = 10
+        button.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, spacing)
+        button.titleEdgeInsets = UIEdgeInsetsMake(0, spacing, 0, 0)
+        return button
     }()
     
     let timeTableCollectionView: UICollectionView = {
@@ -39,6 +43,15 @@ class DetailsCollectionViewCell: UICollectionViewCell, UICollectionViewDataSourc
         return cv
     }()
     
+    let upcomingLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 25, weight: .semibold)
+        label.textColor = UIColor.black
+        label.textAlignment = .left
+        label.text = "Upcoming Prayer"
+        return label
+    }()
+    
     func setupViews() {
         self.backgroundColor = .white
         timeTableCollectionView.dataSource = self
@@ -46,6 +59,7 @@ class DetailsCollectionViewCell: UICollectionViewCell, UICollectionViewDataSourc
         timeTableCollectionView.register(PrayerCell.self, forCellWithReuseIdentifier: cellID)
         addSubview(timeTableCollectionView)
         addSubview(upcomingLabel)
+        addSubview(locationButton)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -69,9 +83,11 @@ class DetailsCollectionViewCell: UICollectionViewCell, UICollectionViewDataSourc
         
         return size
     }
+    
 }
 
 class PrayerCell: UICollectionViewCell {
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         prayerNameLabel.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height * 0.5)
@@ -112,7 +128,6 @@ class PrayerCell: UICollectionViewCell {
     func setupViews() {
         addSubview(prayerNameLabel)
         addSubview(timeLabel)
-//        backgroundColor = UIColor.blue
         backgroundColor = UIColor.clear
     }
 }

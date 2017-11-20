@@ -13,8 +13,6 @@ class PrayerController {
     static let sharedInstance = PrayerController()
     var baseURL: String = "http://muslimsalat.com/"
     var prayers: [Prayer] = []
-    
-    var prayerDictionary = [String:String]()
 
     func fetch(location: String, completion: @escaping (Bool) -> Void) {
         guard let url = URL(string: "\(baseURL)\(location).json") else { return }

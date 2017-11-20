@@ -10,6 +10,8 @@ import UIKit
 
 class MainViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
+    private let cellID = "detailCell"
+    
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 1
@@ -24,9 +26,9 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         super.viewDidLoad()
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(DetailsCollectionViewCell.self, forCellWithReuseIdentifier: "detailCell")
+        collectionView.register(DetailsCollectionViewCell.self, forCellWithReuseIdentifier: cellID)
         self.view.addSubview(collectionView)
-        PrayerController.sharedInstance.fetch(location: "Ashburn") { (success) in
+        PrayerController.sharedInstance.fetch(location: "NewYork") { (success) in
             if success {
                 PrayerController.sharedInstance.prayers.sort(by: {$0.order < $1.order})
                 print(PrayerController.sharedInstance.prayers)
@@ -43,22 +45,8 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "detailCell", for: indexPath) as? DetailsCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as? DetailsCollectionViewCell
         return cell ?? UICollectionViewCell()
     }
-    
-    
-    
-
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
