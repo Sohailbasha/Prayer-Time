@@ -26,7 +26,7 @@ class DetailsCollectionViewCell: UICollectionViewCell, UICollectionViewDataSourc
     let locationButton: UIButton = {
         let button = UIButton()
         button.setTitleColor(.blue, for: .normal)
-        button.setTitle("location", for: .normal)
+        button.setTitle("New York", for: .normal)
         button.setImage(#imageLiteral(resourceName: "map-pin"), for: .normal)
         button.imageView?.tintColor = UIColor.blue
         let spacing: CGFloat = 10
@@ -46,7 +46,7 @@ class DetailsCollectionViewCell: UICollectionViewCell, UICollectionViewDataSourc
     let upcomingLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 25, weight: .semibold)
-        label.textColor = UIColor.black
+        label.textColor = UIColor.white
         label.textAlignment = .left
         label.text = "Upcoming Prayer"
         return label
