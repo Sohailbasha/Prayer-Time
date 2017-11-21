@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class MainViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
@@ -45,7 +46,6 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         PrayerController.sharedInstance.fetch(location: "NewYork") { (success) in
             if success {
                 PrayerController.sharedInstance.prayers.sort(by: {$0.order < $1.order})
-
                 print("step 2")
                 DispatchQueue.main.async {
                     guard let cell = self.collectionView.visibleCells[0] as? DetailsCollectionViewCell else { return }
@@ -64,3 +64,6 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         return cell ?? UICollectionViewCell()
     }
 }
+
+
+
