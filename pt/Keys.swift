@@ -14,4 +14,5 @@ class Keys {
     static let asrKey = "asr"
     static let maghribKey = "maghrib"
     static let ishaKey = "isha"
+    static let appName = "Salam"
 }
