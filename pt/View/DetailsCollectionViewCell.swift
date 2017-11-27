@@ -81,7 +81,7 @@ class DetailsCollectionViewCell: UICollectionViewCell, UICollectionViewDataSourc
         let size = CGSize(width: width, height: height)
         return size
     }
-    
+        
 }
 
 class PrayerCell: UICollectionViewCell {

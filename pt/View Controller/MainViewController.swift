@@ -9,9 +9,11 @@
 import UIKit
 import CoreLocation
 
-class MainViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class MainViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, CLLocationManagerDelegate {
 
     private let cellID = "detailCell"
+    var coreLocationManager: CLLocationManager!
+    var currentLocaiton: CLLocation?
     
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -50,10 +52,32 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
                 DispatchQueue.main.async {
                     guard let cell = self.collectionView.visibleCells[0] as? DetailsCollectionViewCell else { return }
                     cell.timeTableCollectionView.reloadData()
+                    self.nextPrayer()
                 }
             }
         }
     }
+    
+    func nextPrayer() {
+        let prayers = PrayerController.sharedInstance.prayers
+        let formatter = DateFormatter()
+        formatter.dateFormat = "h:mm a"
+        let timeArray = prayers.map{ Calendar.current.dateComponents([.hour, .minute],
+                                                                     from: formatter.date(from: $0.time.uppercased())!) }
+        
+        let upcomingTimes = timeArray.map{ Calendar.current.nextDate(after: Date(),
+                                                                     matching: $0,
+                                                                     matchingPolicy: .nextTime)!}
+        
+        guard let nextTime = upcomingTimes.sorted().first else {
+            return
+            
+        }
+        let formatterString = formatter.string(from: nextTime)
+        let prayer = prayers.filter{$0.time.uppercased() == formatterString}
+        print(prayer.first!)
+    }
+
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 1
