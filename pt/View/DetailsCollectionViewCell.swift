@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailsCollectionViewCell: UICollectionViewCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class DetailsCollectionViewCell: UICollectionViewCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UpcomingPrayerDelegate {
     
     private let cellID = "playerCell"
     
@@ -22,7 +22,9 @@ class DetailsCollectionViewCell: UICollectionViewCell, UICollectionViewDataSourc
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
 
+    
     let locationButton: UIButton = {
         let button = UIButton()
         button.setTitleColor(.blue, for: .normal)
@@ -39,7 +41,7 @@ class DetailsCollectionViewCell: UICollectionViewCell, UICollectionViewDataSourc
         let layout = UICollectionViewFlowLayout()
         let frame = CGRect(x: 0, y: UIScreen.main.bounds.height *  0.25, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width * 0.5)
         let cv = UICollectionView(frame: frame, collectionViewLayout: layout)
-        cv.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.3454088185)
+        cv.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.2048640839)
         return cv
     }()
     
@@ -81,7 +83,7 @@ class DetailsCollectionViewCell: UICollectionViewCell, UICollectionViewDataSourc
         let size = CGSize(width: width, height: height)
         return size
     }
-        
+    
 }
 
 class PrayerCell: UICollectionViewCell {

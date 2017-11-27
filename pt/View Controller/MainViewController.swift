@@ -57,6 +57,15 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
             }
         }
     }
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as? DetailsCollectionViewCell
+        return cell ?? UICollectionViewCell()
+    }
     
     func nextPrayer() {
         let prayers = PrayerController.sharedInstance.prayers
@@ -71,23 +80,13 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         guard let nextTime = upcomingTimes.sorted().first else {
             return
-            
         }
         let formatterString = formatter.string(from: nextTime)
         let prayer = prayers.filter{$0.time.uppercased() == formatterString}
         print(prayer.first!)
-    }
-
-
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        delegate?.get(prayer: prayer.first!)
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as? DetailsCollectionViewCell
-        return cell ?? UICollectionViewCell()
-    }
 }
-
 
 
