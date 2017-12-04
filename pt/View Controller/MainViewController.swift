@@ -41,15 +41,13 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        LocationManager.sharedInstance.start()
+    
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(DetailsCollectionViewCell.self, forCellWithReuseIdentifier: cellID)
         self.view.addSubview(backgroundView)
         self.view.addSubview(collectionView)
-        LocationManager.sharedInstance.locationString { (string) in
-            print("fetched from reverseGeoFencing")
-        }
+   
         
         PrayerController.sharedInstance.fetch(location: "NewYork") { (success) in
             if success {
