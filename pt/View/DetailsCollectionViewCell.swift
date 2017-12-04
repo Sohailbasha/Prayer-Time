@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailsCollectionViewCell: UICollectionViewCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UpcomingPrayerDelegate {
+class DetailsCollectionViewCell: UICollectionViewCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     private let cellID = "playerCell"
     

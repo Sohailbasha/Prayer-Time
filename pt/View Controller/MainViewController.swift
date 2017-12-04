@@ -15,6 +15,12 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     var coreLocationManager: CLLocationManager!
     var currentLocaiton: CLLocation?
     
+    var isLocated: Bool = false {
+        didSet {
+            
+        }
+    }
+    
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 1
@@ -57,6 +63,11 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
             }
         }
     }
+    override func viewDidAppear(_ animated: Bool) {
+        if isLocated == false {
+            self.performSegue(withIdentifier: "showLocator", sender: self)
+        }
+    }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 1
@@ -84,7 +95,6 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         let formatterString = formatter.string(from: nextTime)
         let prayer = prayers.filter{$0.time.uppercased() == formatterString}
         print(prayer.first!)
-        delegate?.get(prayer: prayer.first!)
     }
     
 }

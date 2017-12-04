@@ -22,7 +22,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YKv-U7-HSu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-923" y="92"/>
+            <point key="canvasLocation" x="692" y="90"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="6Ny-RE-sgy">
@@ -34,10 +34,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Tfo-02-ZLm"/>
                     </view>
+                    <connections>
+                        <segue destination="hXp-dI-zUN" kind="show" identifier="showLocator" id="Ksv-sg-qgC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r74-vh-wKS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="93" y="110"/>
+            <point key="canvasLocation" x="-174" y="90"/>
         </scene>
     </scenes>
 </document>
