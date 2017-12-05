@@ -12,16 +12,11 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     private let cellID = "detailCell"
 
-    
-    var isLocated: Bool = false {
-        didSet {
-            
-        }
-    }
-    
     var locationName: String? {
         didSet {
-            
+            if let locationName = self.locationName {
+                fetchPrayers(from: locationName)
+            }
         }
     }
     
@@ -52,11 +47,13 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         self.view.addSubview(backgroundView)
         self.view.addSubview(collectionView)
    
-        
-        PrayerController.sharedInstance.fetch(location: "NewYork") { (success) in
-            if success {
-                PrayerController.sharedInstance.prayers.sort(by: {$0.order < $1.order})
+    }
     
+    func fetchPrayers(from location: String) {
+        let location = location.lowercased().trimmingCharacters(in: .whitespaces)
+        PrayerController.sharedInstance.fetch(location: location) { (success) in
+            if(success) {
+                PrayerController.sharedInstance.prayers.sort(by: {$0.order < $1.order})
                 DispatchQueue.main.async {
                     guard let cell = self.collectionView.visibleCells[0] as? DetailsCollectionViewCell else { return }
                     cell.timeTableCollectionView.reloadData()
@@ -69,6 +66,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     override func viewDidAppear(_ animated: Bool) {
         
         if let location = locationName {
+//            self.fetchPrayers(from: location)
             print("location is not nil")
         } else {
             self.performSegue(withIdentifier: "showLocator", sender: self)
@@ -115,6 +113,8 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     func didLocateSuccessfully(location: String) {
         self.locationName = location
+        
+        dismiss(animated: true, completion: nil)
     }
     
 }

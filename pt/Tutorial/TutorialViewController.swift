@@ -21,14 +21,13 @@ class TutorialViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        findMyLocaiton()
         locationTextField.delegate = self
         locationTextField.layer.cornerRadius = 25
         locationTextField.clipsToBounds = true
         findMeButton.layer.cornerRadius = 25
         
         
-        completeButton.frame = CGRect(x: 0, y: self.view.frame.height, width: self.view.frame.width, height: 50)
+        completeButton.frame = CGRect(x: 0, y: self.view.frame.height - 50, width: self.view.frame.width, height: 50)
         completeButton.addTarget(self, action: #selector(completeButtonTapped), for: .touchUpInside)
         self.view.addSubview(completeButton)
         
@@ -46,11 +45,6 @@ class TutorialViewController: UIViewController, CLLocationManagerDelegate {
         return button
     }()
     
-    var location: String? {
-        didSet {
-            
-        }
-    }
     
     var delegate: Locatable?
     
