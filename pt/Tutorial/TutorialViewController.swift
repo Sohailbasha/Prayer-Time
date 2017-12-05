@@ -9,66 +9,49 @@
 import UIKit
 import MapKit
 
-class TutorialViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, LocationManagerDelegate {
+class TutorialViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
-    var coreLocationManager = CLLocationManager()
-    var locationManager = LocationManager.sharedInstance
-    var location: CLLocation!
-    
-    func locationFound(_ latitude: Double, longitude: Double) {
-        location = CLLocation(latitude: latitude, longitude: longitude)
-    }
-    
+    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        mapView.delegate = self
-        mapView.showsUserLocation = true
+//        setupViews()
+
         
-        coreLocationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
         locationManager.delegate = self
-        setupViews()
+    }
+    
+    
+    func findMyLocaiton() {
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        let authorizationCode = CLLocationManager.authorizationStatus()
-        
-        if authorizationCode == CLAuthorizationStatus.notDetermined && coreLocationManager.responds(to: #selector(CLLocationManager.requestAlwaysAuthorization)) || coreLocationManager.responds(to: #selector(CLLocationManager.requestWhenInUseAuthorization)) {
-            coreLocationManager.requestWhenInUseAuthorization()
-        } else {
-            getLocation()
+        CLGeocoder().reverseGeocodeLocation(manager.location!) { (placeMarks, error) in
+            if let error = error {
+                print("reverse geocoder fialed with error: \(error.localizedDescription)")
+            }
+            if let placeMarks = placeMarks {
+                if placeMarks > 0 {
+                    let pm = placeMarks[0] as? CLPlacemark
+                    //display location
+                } else {
+                    print("problem with the data recieved")
+                }
+            }
         }
     }
     
-    func addAction(gestureRecognizer: UIGestureRecognizer) {
-        let touchPoint = gestureRecognizer.location(in: mapView)
-        let coordinate = mapView.convert(touchPoint, toCoordinateFrom: mapView)
-        
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Error while updating location \(error.localizedDescription)")
     }
-    
-    func getLocation() {
-        LocationManager.sharedInstance.startUpdatingLocationWithCompletionHandler { (longitude, latitude, status, verboseMessage, error) in
-            self.displayLocation(location: CLLocation(latitude: latitude, longitude: longitude))
-        }
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if status != .notDetermined || status != .denied || status != .restricted {
-            getLocation()
-        }
-    }
-    
-    func displayLocation(location: CLLocation) {
-        let region = MKCoordinateRegion(center: CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude), span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
-        mapView.setRegion(region, animated: true)
-        
-        let locationPinCoordinate = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
-        
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = locationPinCoordinate
-        
-        mapView.addAnnotation(annotation)
-        mapView.showAnnotations([annotation], animated: true)
-    }
-    
     
     
     func setupViews() {
