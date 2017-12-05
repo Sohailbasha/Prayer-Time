@@ -7,12 +7,10 @@
 //
 
 import UIKit
-import CoreLocation
 
-class MainViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, CLLocationManagerDelegate, Locatable {
+class MainViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, Locatable {
     
     private let cellID = "detailCell"
-    let locationManager = CLLocationManager()
 
     
     var isLocated: Bool = false {
@@ -21,7 +19,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         }
     }
     
-    var location: String? {
+    var locationName: String? {
         didSet {
             
         }
@@ -70,13 +68,14 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     override func viewDidAppear(_ animated: Bool) {
         
-        if let location = location {
-            
+        if let location = locationName {
             print("location is not nil")
         } else {
             self.performSegue(withIdentifier: "showLocator", sender: self)
         }
     }
+    
+    
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 1
@@ -115,7 +114,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     func didLocateSuccessfully(location: String) {
-        self.location = location
+        self.locationName = location
     }
     
 }

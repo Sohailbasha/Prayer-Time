@@ -29,7 +29,7 @@ class TutorialViewController: UIViewController, CLLocationManagerDelegate {
         
         
         completeButton.frame = CGRect(x: 0, y: self.view.frame.height, width: self.view.frame.width, height: 50)
-        
+        completeButton.addTarget(self, action: #selector(completeButtonTapped), for: .touchUpInside)
         self.view.addSubview(completeButton)
         
     }
@@ -67,7 +67,7 @@ class TutorialViewController: UIViewController, CLLocationManagerDelegate {
 // MARK: - Methods
 extension TutorialViewController {
     
-    func completeButtonTapped() {
+    @objc func completeButtonTapped() {
         if let location = locationTextField.text, !location.isEmpty {
             delegate?.didLocateSuccessfully(location: location)
         } else {
@@ -122,6 +122,7 @@ extension TutorialViewController {
         if let placeMark = placeMark {
             locationManager.stopUpdatingLocation()
             if let adminArea = placeMark.administrativeArea {
+                print(adminArea)
                 delegate?.didLocateSuccessfully(location: adminArea)
             }
         }
