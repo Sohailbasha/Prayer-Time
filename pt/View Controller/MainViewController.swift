@@ -10,6 +10,27 @@ import UIKit
 
 class MainViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, Locatable {
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.register(DetailsCollectionViewCell.self, forCellWithReuseIdentifier: cellID)
+        self.view.addSubview(backgroundView)
+        self.view.addSubview(collectionView)
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        if let location = locationName {
+            //            self.fetchPrayers(from: location)
+            print("location is not nil")
+        } else {
+            self.performSegue(withIdentifier: "showLocator", sender: self)
+        }
+    }
+    
     private let cellID = "detailCell"
 
     var locationName: String? {
@@ -38,17 +59,6 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         return imageView
     }()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        collectionView.register(DetailsCollectionViewCell.self, forCellWithReuseIdentifier: cellID)
-        self.view.addSubview(backgroundView)
-        self.view.addSubview(collectionView)
-   
-    }
-    
     func fetchPrayers(from location: String) {
         let location = location.lowercased().trimmingCharacters(in: .whitespaces)
         PrayerController.sharedInstance.fetch(location: location) { (success) in
@@ -57,19 +67,14 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
                 DispatchQueue.main.async {
                     guard let cell = self.collectionView.visibleCells[0] as? DetailsCollectionViewCell else { return }
                     cell.timeTableCollectionView.reloadData()
+                    cell.locationButton.setTitle(location, for: .normal)
                     self.nextPrayer()
                 }
+            } else  {
+                PrayerController.sharedInstance.fetch(location: "New York", completion: { (_) in
+                    PrayerController.sharedInstance.prayers.sort(by: {$0.order < $1.order})
+                })
             }
-        }
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        
-        if let location = locationName {
-//            self.fetchPrayers(from: location)
-            print("location is not nil")
-        } else {
-            self.performSegue(withIdentifier: "showLocator", sender: self)
         }
     }
     
