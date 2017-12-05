@@ -115,7 +115,6 @@ extension TutorialViewController {
     
     func getLocaitonInfo(placeMark: CLPlacemark?) {
         if let placeMark = placeMark {
-//            locationManager.stopUpdatingLocation()
             if let adminArea = placeMark.administrativeArea {
                 print(adminArea)
                 delegate?.didLocateSuccessfully(location: adminArea)
