@@ -59,15 +59,15 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     }()
     
     func fetchPrayers(from location: String) {
-        let requestLocation = location.trimmingCharacters(in: .whitespaces)
-        PrayerController.sharedInstance.fetch(location: requestLocation) { (success) in
+//        let requestLocation = location.trimmingCharacters(in: .whitespaces)
+        PrayerController.sharedInstance.fetch(location: location) { (success) in
             if(success) {
                 PrayerController.sharedInstance.prayers.sort(by: {$0.order < $1.order})
                 DispatchQueue.main.async {
                     guard let cell = self.collectionView.visibleCells[0] as? DetailsCollectionViewCell else { return }
                     cell.timeTableCollectionView.reloadData()
                     cell.locationButton.setTitle(location, for: .normal)
-                    self.nextPrayer()
+                    
                 }
             } else  {
                 PrayerController.sharedInstance.fetch(location: "NewYork", completion: { (_) in

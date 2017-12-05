@@ -27,10 +27,10 @@ class DetailsCollectionViewCell: UICollectionViewCell, UICollectionViewDataSourc
     
     let locationButton: UIButton = {
         let button = UIButton()
-        button.setTitleColor(.blue, for: .normal)
-        button.setTitle("New York", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.setTitle("", for: .normal)
         button.setImage(#imageLiteral(resourceName: "map-pin"), for: .normal)
-        button.imageView?.tintColor = UIColor.blue
+        button.imageView?.tintColor = UIColor.white
         let spacing: CGFloat = 10
         button.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, spacing)
         button.titleEdgeInsets = UIEdgeInsetsMake(0, spacing, 0, 0)
