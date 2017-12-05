@@ -97,6 +97,7 @@ extension TutorialViewController: UITextFieldDelegate {
 extension TutorialViewController {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        locationManager.stopUpdatingLocation()
         CLGeocoder().reverseGeocodeLocation(manager.location!) { (placeMarks, error) in
             if let error = error {
                 print("reverse geocoder fialed with error: \(error.localizedDescription)")
@@ -114,7 +115,7 @@ extension TutorialViewController {
     
     func getLocaitonInfo(placeMark: CLPlacemark?) {
         if let placeMark = placeMark {
-            locationManager.stopUpdatingLocation()
+//            locationManager.stopUpdatingLocation()
             if let adminArea = placeMark.administrativeArea {
                 print(adminArea)
                 delegate?.didLocateSuccessfully(location: adminArea)

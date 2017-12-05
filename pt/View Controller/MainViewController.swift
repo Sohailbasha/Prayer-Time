@@ -19,14 +19,13 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         self.view.addSubview(backgroundView)
         self.view.addSubview(collectionView)
         
+        if let locationName = locationName {
+            self.fetchPrayers(from: locationName)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
-        if let location = locationName {
-            //            self.fetchPrayers(from: location)
-            print("location is not nil")
-        } else {
+        if locationName == nil {
             self.performSegue(withIdentifier: "showLocator", sender: self)
         }
     }
@@ -60,8 +59,8 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     }()
     
     func fetchPrayers(from location: String) {
-        let location = location.lowercased().trimmingCharacters(in: .whitespaces)
-        PrayerController.sharedInstance.fetch(location: location) { (success) in
+        let requestLocation = location.trimmingCharacters(in: .whitespaces)
+        PrayerController.sharedInstance.fetch(location: requestLocation) { (success) in
             if(success) {
                 PrayerController.sharedInstance.prayers.sort(by: {$0.order < $1.order})
                 DispatchQueue.main.async {
@@ -71,7 +70,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
                     self.nextPrayer()
                 }
             } else  {
-                PrayerController.sharedInstance.fetch(location: "New York", completion: { (_) in
+                PrayerController.sharedInstance.fetch(location: "NewYork", completion: { (_) in
                     PrayerController.sharedInstance.prayers.sort(by: {$0.order < $1.order})
                 })
             }
