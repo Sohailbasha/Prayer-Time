@@ -9,13 +9,19 @@
 import UIKit
 import CoreLocation
 
-class MainViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, CLLocationManagerDelegate {
-
+class MainViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, CLLocationManagerDelegate, Locatable {
+    
     private let cellID = "detailCell"
-    var coreLocationManager: CLLocationManager!
-    var currentLocaiton: CLLocation?
+    let locationManager = CLLocationManager()
+
     
     var isLocated: Bool = false {
+        didSet {
+            
+        }
+    }
+    
+    var location: String? {
         didSet {
             
         }
@@ -52,7 +58,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         PrayerController.sharedInstance.fetch(location: "NewYork") { (success) in
             if success {
                 PrayerController.sharedInstance.prayers.sort(by: {$0.order < $1.order})
-                print("step 2")
+    
                 DispatchQueue.main.async {
                     guard let cell = self.collectionView.visibleCells[0] as? DetailsCollectionViewCell else { return }
                     cell.timeTableCollectionView.reloadData()
@@ -61,8 +67,13 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
             }
         }
     }
+    
     override func viewDidAppear(_ animated: Bool) {
-        if isLocated == false {
+        
+        if let location = location {
+            
+            print("location is not nil")
+        } else {
             self.performSegue(withIdentifier: "showLocator", sender: self)
         }
     }
@@ -93,6 +104,18 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         let formatterString = formatter.string(from: nextTime)
         let prayer = prayers.filter{$0.time.uppercased() == formatterString}
         print(prayer.first!)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showLocator" {
+            if let destinationVC = segue.destination as? TutorialViewController {
+                destinationVC.delegate = self
+            }
+        }
+    }
+    
+    func didLocateSuccessfully(location: String) {
+        self.location = location
     }
     
 }
