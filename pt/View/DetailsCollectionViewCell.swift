@@ -23,20 +23,6 @@ class DetailsCollectionViewCell: UICollectionViewCell, UICollectionViewDataSourc
         fatalError("init(coder:) has not been implemented")
     }
     
-
-    
-    let locationButton: UIButton = {
-        let button = UIButton()
-        button.setTitleColor(.white, for: .normal)
-        button.setTitle("", for: .normal)
-        button.setImage(#imageLiteral(resourceName: "map-pin"), for: .normal)
-        button.imageView?.tintColor = UIColor.white
-        let spacing: CGFloat = 10
-        button.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, spacing)
-        button.titleEdgeInsets = UIEdgeInsetsMake(0, spacing, 0, 0)
-        return button
-    }()
-    
     let timeTableCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let frame = CGRect(x: 0, y: UIScreen.main.bounds.height *  0.25, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width * 0.5)
@@ -61,7 +47,6 @@ class DetailsCollectionViewCell: UICollectionViewCell, UICollectionViewDataSourc
         timeTableCollectionView.register(PrayerCell.self, forCellWithReuseIdentifier: cellID)
         addSubview(timeTableCollectionView)
         addSubview(upcomingLabel)
-//        addSubview(locationButton)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

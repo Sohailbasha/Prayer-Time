@@ -19,8 +19,9 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         self.view.addSubview(backgroundView)
         self.view.addSubview(collectionView)
         
-        locationButton.frame = CGRect(x: (self.view.center.x - 50), y: 20, width: 100, height: 25) // center is subtracted by width/2
-
+        locationButton.frame = CGRect(x: (self.view.center.x - 50), y: 28, width: 100, height: 25) // center is subtracted by width/2
+        self.view.addSubview(locationButton)
+        locationButton.addTarget(self, action: #selector(toggleLocationMenu), for: .touchUpInside)
         if let locationName = locationName {
             self.fetchPrayers(from: locationName)
         }
@@ -28,7 +29,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     override func viewDidAppear(_ animated: Bool) {
         if locationName == nil {
-            self.performSegue(withIdentifier: "showLocator", sender: self)
+            self.toggleLocationMenu()
         }
     }
     
@@ -46,7 +47,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 1
         layout.minimumLineSpacing = 1
-        layout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 20)
+        layout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 28)
         let cv = UICollectionView(frame: UIScreen.main.bounds, collectionViewLayout: layout)
         cv.backgroundColor = UIColor.clear
         return cv
@@ -82,7 +83,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
                 DispatchQueue.main.async {
                     guard let cell = self.collectionView.visibleCells[0] as? DetailsCollectionViewCell else { return }
                     cell.timeTableCollectionView.reloadData()
-                    cell.locationButton.setTitle(location, for: .normal)
+                    self.locationButton.setTitle(location, for: .normal)
                     
                 }
             } else  {
@@ -131,9 +132,12 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         }
     }
     
+    @objc func toggleLocationMenu() {
+        self.performSegue(withIdentifier: "showLocator", sender: self)
+    }
+    
     func didLocateSuccessfully(location: String) {
         self.locationName = location
-        
         dismiss(animated: true, completion: nil)
     }
     
