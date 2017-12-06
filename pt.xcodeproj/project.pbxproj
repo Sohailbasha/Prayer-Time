@@ -113,10 +113,10 @@
 				FDDCC6691FBE1CE900A0C744 /* View */,
 				FDDCC66E1FBE34D300A0C744 /* NetworkController.swift */,
 				FDDCC6701FBE363C00A0C744 /* Keys.swift */,
+				FDF77CAB1FD880C000CA991B /* Flashable.swift */,
 				FDDCC6591FBE0A0900A0C744 /* Assets.xcassets */,
 				FDDCC65B1FBE0A0900A0C744 /* LaunchScreen.storyboard */,
 				FDDCC65E1FBE0A0900A0C744 /* Info.plist */,
-				FDF77CAB1FD880C000CA991B /* Flashable.swift */,
 			);
 			path = pt;
 			sourceTree = "<group>";

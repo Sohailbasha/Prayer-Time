@@ -61,7 +61,7 @@ class DetailsCollectionViewCell: UICollectionViewCell, UICollectionViewDataSourc
         timeTableCollectionView.register(PrayerCell.self, forCellWithReuseIdentifier: cellID)
         addSubview(timeTableCollectionView)
         addSubview(upcomingLabel)
-        addSubview(locationButton)
+//        addSubview(locationButton)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -83,6 +83,7 @@ class DetailsCollectionViewCell: UICollectionViewCell, UICollectionViewDataSourc
         let size = CGSize(width: width, height: height)
         return size
     }
+    
     
 }
 
