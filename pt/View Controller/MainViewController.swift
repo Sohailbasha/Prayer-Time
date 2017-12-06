@@ -19,6 +19,8 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         self.view.addSubview(backgroundView)
         self.view.addSubview(collectionView)
         
+        locationButton.frame = CGRect(x: (self.view.center.x - 50), y: 20, width: 100, height: 25) // center is subtracted by width/2
+
         if let locationName = locationName {
             self.fetchPrayers(from: locationName)
         }
@@ -57,6 +59,20 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()
+    
+    
+    let locationButton: UIButton = {
+        let button = UIButton()
+        button.setTitleColor(.white, for: .normal)
+        button.setTitle("", for: .normal)
+        button.setImage(#imageLiteral(resourceName: "map-pin"), for: .normal)
+        button.imageView?.tintColor = UIColor.white
+        let spacing: CGFloat = 10
+        button.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, spacing)
+        button.titleEdgeInsets = UIEdgeInsetsMake(0, spacing, 0, 0)
+        return button
+    }()
+    
     
     func fetchPrayers(from location: String) {
 //        let requestLocation = location.trimmingCharacters(in: .whitespaces)
