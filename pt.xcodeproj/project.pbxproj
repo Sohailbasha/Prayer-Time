@@ -20,6 +20,7 @@
 		FDDCC66D1FBE344800A0C744 /* PrayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDCC66C1FBE344800A0C744 /* PrayerController.swift */; };
 		FDDCC66F1FBE34D300A0C744 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDCC66E1FBE34D300A0C744 /* NetworkController.swift */; };
 		FDDCC6711FBE363C00A0C744 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDCC6701FBE363C00A0C744 /* Keys.swift */; };
+		FDF77CAC1FD880C000CA991B /* Flashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF77CAB1FD880C000CA991B /* Flashable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		FDDCC66C1FBE344800A0C744 /* PrayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerController.swift; sourceTree = "<group>"; };
 		FDDCC66E1FBE34D300A0C744 /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		FDDCC6701FBE363C00A0C744 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		FDF77CAB1FD880C000CA991B /* Flashable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flashable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 				FDDCC6591FBE0A0900A0C744 /* Assets.xcassets */,
 				FDDCC65B1FBE0A0900A0C744 /* LaunchScreen.storyboard */,
 				FDDCC65E1FBE0A0900A0C744 /* Info.plist */,
+				FDF77CAB1FD880C000CA991B /* Flashable.swift */,
 			);
 			path = pt;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				FD10DB861FC4D2C900DB436D /* TutorialViewController.swift in Sources */,
 				FDDCC66D1FBE344800A0C744 /* PrayerController.swift in Sources */,
 				FDDCC66F1FBE34D300A0C744 /* NetworkController.swift in Sources */,
+				FDF77CAC1FD880C000CA991B /* Flashable.swift in Sources */,
 				FDDCC6651FBE0A4D00A0C744 /* MainViewController.swift in Sources */,
 				FDDCC6711FBE363C00A0C744 /* Keys.swift in Sources */,
 				FDDCC66B1FBE311C00A0C744 /* Prayer.swift in Sources */,

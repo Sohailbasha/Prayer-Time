@@ -13,10 +13,7 @@ protocol Locatable {
     func didLocateSuccessfully(location: String)
 }
 
-
-
 class TutorialViewController: UIViewController, CLLocationManagerDelegate {
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,7 +56,7 @@ class TutorialViewController: UIViewController, CLLocationManagerDelegate {
         if let location = locationTextField.text, !location.isEmpty {
             delegate?.didLocateSuccessfully(location: location)
         } else {
-            // something else
+            self.locationTextField.flash()
         }
     }
     
@@ -127,7 +124,7 @@ extension TutorialViewController {
     }
 }
 
-
+extension UITextField: Flashable{}
 
 
 
