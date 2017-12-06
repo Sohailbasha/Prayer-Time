@@ -15,6 +15,7 @@ class PrayerController {
     var prayers: [Prayer] = []
 
     func fetch(location: String, completion: @escaping (Bool) -> Void) {
+//        prayers.removeAll()
         guard let url = URL(string: "\(baseURL)\(location).json") else { return }
         let parameters = ["key":Keys.apiKey]
         
