@@ -44,7 +44,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 1
         layout.minimumLineSpacing = 1
-        layout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+        layout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - 20)
         let cv = UICollectionView(frame: UIScreen.main.bounds, collectionViewLayout: layout)
         cv.backgroundColor = UIColor.clear
         return cv
