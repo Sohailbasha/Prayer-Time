@@ -23,18 +23,31 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="pad-Zq-o08">
-                                <rect key="frame" x="30" y="374" width="315" height="131.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hL1-6n-XKU">
+                                <rect key="frame" x="30" y="268" width="315" height="131.5"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter city or state" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bgE-Ts-2dv">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="8aV-Wj-dKT">
                                         <rect key="frame" x="0.0" y="0.0" width="315" height="46"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="46" id="fFr-sF-Gd8"/>
-                                        </constraints>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter city or state" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bgE-Ts-2dv">
+                                                <rect key="frame" x="0.0" y="0.0" width="249" height="46"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="46" id="fFr-sF-Gd8"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D6J-Md-BrE">
+                                                <rect key="frame" x="269" y="0.0" width="46" height="46"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="46" id="PQc-32-2Eh"/>
+                                                    <constraint firstAttribute="width" constant="46" id="pIa-nj-hpJ"/>
+                                                </constraints>
+                                                <state key="normal" image="nextButton"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PeG-rm-hIL">
                                         <rect key="frame" x="0.0" y="56" width="315" height="19.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -61,11 +74,11 @@
                         <color key="backgroundColor" red="0.0" green="0.53725490200000003" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="xZ2-S3-lHp" firstAttribute="trailing" secondItem="I7s-RU-O5s" secondAttribute="trailing" constant="16" id="0tN-2L-cD0"/>
-                            <constraint firstItem="pad-Zq-o08" firstAttribute="leading" secondItem="xZ2-S3-lHp" secondAttribute="leading" constant="30" id="3Er-Qi-x1o"/>
+                            <constraint firstItem="hL1-6n-XKU" firstAttribute="centerY" secondItem="a7b-RR-0pf" secondAttribute="centerY" id="1XH-sv-WzA"/>
                             <constraint firstItem="I7s-RU-O5s" firstAttribute="leading" secondItem="xZ2-S3-lHp" secondAttribute="leading" constant="16" id="Bid-6x-6G8"/>
                             <constraint firstItem="I7s-RU-O5s" firstAttribute="top" secondItem="xZ2-S3-lHp" secondAttribute="top" constant="150" id="H8z-4k-rYF"/>
-                            <constraint firstItem="xZ2-S3-lHp" firstAttribute="trailing" secondItem="pad-Zq-o08" secondAttribute="trailing" constant="30" id="Mwe-Hb-wHb"/>
-                            <constraint firstItem="pad-Zq-o08" firstAttribute="top" secondItem="I7s-RU-O5s" secondAttribute="bottom" constant="180" id="UNf-lF-ZEK"/>
+                            <constraint firstItem="hL1-6n-XKU" firstAttribute="leading" secondItem="xZ2-S3-lHp" secondAttribute="leading" constant="30" id="enA-GU-KvZ"/>
+                            <constraint firstItem="xZ2-S3-lHp" firstAttribute="trailing" secondItem="hL1-6n-XKU" secondAttribute="trailing" constant="30" id="kBG-pe-Zol"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xZ2-S3-lHp"/>
                     </view>
@@ -98,4 +111,7 @@
             <point key="canvasLocation" x="-174" y="90"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="nextButton" width="52" height="52"/>
+    </resources>
 </document>
