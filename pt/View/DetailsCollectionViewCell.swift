@@ -15,7 +15,6 @@ class DetailsCollectionViewCell: UICollectionViewCell, UICollectionViewDataSourc
     override init(frame: CGRect) {
         super.init(frame: frame)
         upcomingLabel.frame = CGRect(x: 8, y: frame.size.height * 0.10, width: frame.size.width - 10, height: 45)
-        locationButton.frame = CGRect(x: (self.center.x - 50), y: 20, width: 100, height: 25) // center is subtracted by width/2
         setupViews()
     }
     
