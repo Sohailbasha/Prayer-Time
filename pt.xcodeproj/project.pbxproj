@@ -10,6 +10,7 @@
 		846FC62A6B6F0B64FC6819E3 /* Pods_pt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4FA854D71D01EFD3F5B7DD3 /* Pods_pt.framework */; };
 		FD10DB861FC4D2C900DB436D /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD10DB851FC4D2C900DB436D /* TutorialViewController.swift */; };
 		FD5228851FD60904000988BC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD5228841FD60904000988BC /* MapKit.framework */; };
+		FDBC297E1FFC306E00B07FC4 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBC297D1FFC306E00B07FC4 /* Result.swift */; };
 		FDDCC6531FBE0A0900A0C744 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDCC6521FBE0A0900A0C744 /* AppDelegate.swift */; };
 		FDDCC6581FBE0A0900A0C744 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDDCC6561FBE0A0900A0C744 /* Main.storyboard */; };
 		FDDCC65A1FBE0A0900A0C744 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDDCC6591FBE0A0900A0C744 /* Assets.xcassets */; };
@@ -29,6 +30,7 @@
 		E3591D458E3C5B92AD307F71 /* Pods-pt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pt.release.xcconfig"; path = "Pods/Target Support Files/Pods-pt/Pods-pt.release.xcconfig"; sourceTree = "<group>"; };
 		FD10DB851FC4D2C900DB436D /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		FD5228841FD60904000988BC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		FDBC297D1FFC306E00B07FC4 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		FDDCC64F1FBE0A0900A0C744 /* pt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDDCC6521FBE0A0900A0C744 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FDDCC6571FBE0A0900A0C744 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				FDDCC66A1FBE311C00A0C744 /* Prayer.swift */,
+				FDBC297D1FFC306E00B07FC4 /* Result.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				FDDCC66F1FBE34D300A0C744 /* NetworkController.swift in Sources */,
 				FDF77CAC1FD880C000CA991B /* Flashable.swift in Sources */,
 				FDDCC6651FBE0A4D00A0C744 /* MainViewController.swift in Sources */,
+				FDBC297E1FFC306E00B07FC4 /* Result.swift in Sources */,
 				FDDCC6711FBE363C00A0C744 /* Keys.swift in Sources */,
 				FDDCC66B1FBE311C00A0C744 /* Prayer.swift in Sources */,
 				FDDCC6681FBE13B100A0C744 /* DetailsCollectionViewCell.swift in Sources */,
