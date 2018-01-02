@@ -14,3 +14,7 @@ struct Prayer {
     var order: Int
 }
 
+struct Location {
+    let city: String
+    let state: String
+}
